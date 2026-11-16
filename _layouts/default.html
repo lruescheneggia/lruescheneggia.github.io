@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="description" content="{{ site.description | escape }}">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #243247;
+      --muted: #556579;
+      --accent: #235b7a;
+      --line: #dde5eb;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #fafbfc;
+      color: var(--ink);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    a {
+      color: var(--accent);
+      text-underline-offset: 4px;
+    }
+
+    a:hover { text-decoration-thickness: 2px; }
+
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 5px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      padding: 8px 16px;
+      background: white;
+    }
+
+    .skip-link:focus { top: 12px; }
+
+    header, main, footer {
+      width: min(100% - 48px, 880px);
+      margin-inline: auto;
+    }
+
+    header {
+      padding-block: 26px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-name {
+      font-size: 18px;
+      font-weight: 650;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    main {
+      padding-block: 56px 72px;
+      min-height: 70vh;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.25;
+      font-weight: 650;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.3rem, 6vw, 3.5rem);
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      margin-top: 48px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      font-size: 1.4rem;
+    }
+
+    h3 {
+      margin-top: 28px;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    p { margin-block: 0 18px; }
+
+    main > h1 + p {
+      color: var(--accent);
+      font-size: 1.05rem;
+      margin-bottom: 28px;
+    }
+
+    li { margin-bottom: 8px; }
+
+    footer {
+      padding-block: 22px 32px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      header, main, footer {
+        width: calc(100% - 36px);
+      }
+
+      main { padding-top: 36px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <a class="site-name" href="{{ '/' | relative_url }}">
+      {{ site.title }}
+    </a>
+  </header>
+
+  <main id="main">
+    {{ content }}
+  </main>
+
+  <footer>
+    {{ site.title }} · Climate, energy and development
+  </footer>
+</body>
+</html>
